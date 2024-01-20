@@ -3,6 +3,7 @@ import React, { useEffect, useReducer, useState } from 'react';
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
+import Input from '../UI/Input/Input';
 
 const emailReducer = (state, action) => {
   if (action.type === 'Input_email') {
@@ -95,7 +96,10 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
+        <Input isvalid={emailstate.isvalid} label="E-Mail" id="email" type="email" value={emailstate.value} onChange={emailChangeHandler} onBlur={validateEmailHandler} />
+        <Input isvalid={passwordstate.isvalid} label="Password" id="password" type="password" value={passwordstate.value} onChange={passwordChangeHandler} onBlur={validatePasswordHandler} />
+        <Input label="College Name" id="colgname" type="text" value={enteredColgname} onChange={colgnameChangeHandler} />
+        {/* <div
           className={`${classes.control} ${emailstate.isvalid === false ? classes.invalid : ''
             }`}
         >
@@ -107,21 +111,21 @@ const Login = (props) => {
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
-        </div>
-        <div
+        </div> */}
+        {/* <div
           className={`${classes.control} ${passwordstate.isvalid === false ? classes.invalid : ''
             }`}
         >
-          <label htmlFor="password">Password</label>
-          <input
+        <label htmlFor="password">Password</label>
+        <input
             type="password"
             id="password"
             value={passwordstate.value}
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
-          />
-        </div>
-        <div
+            />
+          </div> */}
+        {/* <div
           className={`${classes.control} `}
         >
           <label htmlFor="password">College Name</label>
@@ -131,7 +135,7 @@ const Login = (props) => {
             value={enteredColgname}
             onChange={colgnameChangeHandler}
           />
-        </div>
+        </div> */}
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
